@@ -9,7 +9,7 @@ post_image変数へ格納-->
   <% end %>
   <!---post_image.get_imageの部分は
   PostImageモデル内に記述したメソッドを呼び出している-->
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
   <p>ショップ名：<%= post_image.shop_name %></p>
   <p>説明：<%= post_image.caption %></p>
   <p>ユーザーネーム：<%= post_image.user.name %></p>
