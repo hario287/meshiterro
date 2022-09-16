@@ -4,7 +4,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 # configure_permitted_parametersメソッドが実行されます
 
   def after_sign_in_path_for(resource)
-    about_path
+    post_images_path
   end
   def after_sign_out_path_for(resource)
     about_path

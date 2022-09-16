@@ -20,11 +20,12 @@ class PostImagesController < ApplicationController
     #devise をインストールすることで使えるようになります。
       ##ログイン中のユーザーのidを取得することができるようになってる
 
-
   def index
+    @post_images = PostImage.all
   end
 
   def show
+    @post_image = PostImage.find(params[:id])
   end
 
   def destroy
