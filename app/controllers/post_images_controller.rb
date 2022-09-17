@@ -8,8 +8,11 @@ class PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+       redirect_to post_images_path
+    else
+       render :new
+    end
   end
     ##空のモデル(@post_images)では、PostImageモデルで定義したカラムを
     #"[モデル名].[カラム名]"という形で繋げることで、
