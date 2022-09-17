@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
 has_many :post_images, dependent: :destroy
 #1:N の「1」側にあたるモデルに、has_many を記載する必要がある
+has_many :post_comments, dependent: :destroy
 
 has_one_attached :profile_image
 #ActiveStorageで、
