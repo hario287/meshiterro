@@ -2,6 +2,7 @@ class PostImage < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def get_image #get_imageというメソッドを作成
                 #アクションとは少し違い、
@@ -13,4 +14,10 @@ class PostImage < ApplicationRecord
      image
   end
 
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+    # 引数で渡されたユーザidがFavoritesテーブル内に
+    # 存在（exists?）するかどうかを調べます。
+    # 存在していればtrue、存在していなければfalse
+  end
 end
