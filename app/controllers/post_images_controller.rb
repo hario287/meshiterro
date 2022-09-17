@@ -1,6 +1,6 @@
 class PostImagesController < ApplicationController
   def new
-    @post_image = PostImage.new
+   @post_image = PostImage.new
     #@post_imagesは、form_with に渡すため用意された「空のモデル」
   end
 
@@ -24,7 +24,9 @@ class PostImagesController < ApplicationController
       ##ログイン中のユーザーのidを取得することができるようになってる
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page])
+    # ↑kaminariインストール後↑
+    # @post_images = PostImage.all
   end
 
   def show
